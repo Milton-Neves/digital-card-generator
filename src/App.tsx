@@ -1,14 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from './components/Header/Header';
+import "./App.css";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div>
+    <div className="App">
       <Header />
-      {/* Outras seções da aplicação */}
+      <main></main>
+      <Footer />
     </div>
   );
-};
+}
 
 export default App;
