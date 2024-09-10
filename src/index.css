@@ -33,13 +33,15 @@ h6 {
   --tertiary-color: #6c5ae0;
   --quartiary-color: #F2BF4E;
   --quintiary-color: #F4CA6D;
+  --sextiary-color: #F8DCA0;
   --white: #ffffff;
   --black: #000000;
   --gray-primary: #f1f3f5;
   --gray-secondary: #cfd3d8;
   --gray-tertiary: #97a1ac;
-  --gray-quartiary: #7e8a98;
-  --gray-quintiary: #212429;
+  --gray-quartiary: #636E7C;
+  --gray-sextiary: #212429;
+  
 
   --font-primary: "Nunito Sans", sans-serif;
   --font-secondary: "Darker Grotesque", sans-serif;
@@ -70,12 +72,21 @@ h6 {
 }
 
 /* Botões */
-.button {
+/* .button {
   background-color: var(--primary-color);
   color: var(--white);
   padding: 1rem 2rem;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+} */
+
+Button.module.css
+.button {
+  background-color: var(--sextiary-color);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
   cursor: pointer;
 }
 
