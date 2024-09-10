@@ -1,13 +1,90 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* src/index.css ou src/App.css */
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Darker Grotesque", sans-serif;
+}
+
+/* Variáveis globais */
+:root {
+  --primary-color: #100c27;
+  --secondary-color: #4839a3;
+  --tertiary-color: #6c5ae0;
+  --quartiary-color: #F2BF4E;
+  --quintiary-color: #F4CA6D;
+  --white: #ffffff;
+  --black: #000000;
+  --gray-primary: #f1f3f5;
+  --gray-secondary: #cfd3d8;
+  --gray-tertiary: #97a1ac;
+  --gray-quartiary: #7e8a98;
+  --gray-quintiary: #212429;
+
+  --font-primary: "Nunito Sans", sans-serif;
+  --font-secondary: "Darker Grotesque", sans-serif;
+}
+
+/* Tipografia */
+.heading-lg {
+  font-family: var(--font-secondary);
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.heading-md {
+  font-family: var(--font-secondary);
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: bold;
+  color: var(--black);
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Botões */
+.button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  .heading-lg {
+    font-size: 32px;
+  }
 }

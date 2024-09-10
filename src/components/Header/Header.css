@@ -1,0 +1,34 @@
+header {
+  background-color: var(--white);
+  padding: 1rem;
+
+  img {
+    width: 100px;
+  }
+
+  h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gray-quintiary);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    padding: 1.5rem 5rem;
+
+    img {
+      width: 147px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+  }
+}
