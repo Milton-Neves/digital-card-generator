@@ -1,11 +1,15 @@
 .form-container {
-  background-color: var(--tertiary-color);
   height: 994px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 54px 24px 0 24px;
   box-sizing: border-box;
+
+  .form-content {
+    background-color: var(--tertiary-color);
+    padding: 0 12px 0 12px;
+  }
 
   h1 {
     font-size: 23px;
@@ -52,10 +56,12 @@
         margin-bottom: 24px;
         line-height: 19.6px;
         box-sizing: border-box;
+        color: var(--gray-quartiary);
       }
 
       input::placeholder {
         font-family: "Nunito Sans", sans-serif;
+        color: var(--gray-quartiary);
         font-size: 14px;
         font-weight: 400;
         text-align: left;
@@ -83,6 +89,7 @@
     p {
       font-size: 12px;
       line-height: 18px;
+      margin-top: 1rem;
     }
   }
 
@@ -116,10 +123,10 @@
 @media (min-width: 1024px) {
   .form-container {
     margin: 0 auto;
-    /* padding: 20px; */
     max-width: 100%;
-    /* padding-left: 40px; */
-    .test {
+    height: 100vh;
+
+    .title {
       max-width: 50%;
       h1 {
         font-size: 2.5em;
@@ -130,9 +137,18 @@
         margin-bottom: 30px;
       }
     }
-
-    .test2 {
+    .form-inline {
       display: flex;
+      gap: 20px;
+    }
+
+    .form-group {
+      flex: 1;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
       img {
         width: 471px;
       }
@@ -143,13 +159,8 @@
       border: none;
     }
 
-    .input-row {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .input-row input {
-      width: 48%;
+    .info > p {
+      margin-top: 1rem;
     }
   }
 }

@@ -43,7 +43,7 @@ const FormComponent: React.FC = () => {
 
   return (
     <div className="form-container">
-      <div className="test">
+      <div className="title">
         <h1>Gerador de Cartão de Visita</h1>
 
         <p>
@@ -51,12 +51,12 @@ const FormComponent: React.FC = () => {
           Instagram e demais canais digitais.
         </p>
       </div>
-      <div className="test2">
-        <div className="test3">
+      <div className="content">
+        <div className="image">
           <img src="/assets/image.svg" alt="imagem ilustrativa" />
         </div>
-        <div className="test4">
-          <form>
+        <div className="form-content">
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
               <label htmlFor="name">Nome* </label>
               <input
@@ -66,24 +66,31 @@ const FormComponent: React.FC = () => {
               />
               {errors.name && <p className="error">{errors.name.message}</p>}
             </div>
-            <div className="form-group">
-              <label htmlFor="phone">Telefone* </label>
-              <InputMask
-                id="phone"
-                placeholder="(00) 0 0000-0000"
-                mask="(99) 9999[9]-9999"
-                {...register("phone")}
-              />
-              {errors.phone && <p className="error">{errors.phone.message}</p>}
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">E-mail* </label>
-              <input
-                id="email"
-                placeholder="nome@email.com"
-                {...register("email")}
-              />
-              {errors.email && <p className="error">{errors.email.message}</p>}
+
+            <div className="form-inline">
+              <div className="form-group">
+                <label htmlFor="phone">Telefone* </label>
+                <InputMask
+                  id="phone"
+                  placeholder="(00) 0 0000-0000"
+                  mask="(99) 9999[9]-9999"
+                  {...register("phone")}
+                />
+                {errors.phone && (
+                  <p className="error">{errors.phone.message}</p>
+                )}
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">E-mail* </label>
+                <input
+                  id="email"
+                  placeholder="nome@email.com"
+                  {...register("email")}
+                />
+                {errors.email && (
+                  <p className="error">{errors.email.message}</p>
+                )}
+              </div>
             </div>
           </form>
 
