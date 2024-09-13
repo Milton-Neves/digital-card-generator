@@ -54,16 +54,18 @@ const ResultPage: React.FC = () => {
           </span>
         </button>
       </div>
-
-      {/* Link para o teste grátis no RD Station */}
-      <a
-        className="signup-link"
-        href="https://app.rdstation.com.br/signup"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        fazer um teste grátis do RD Station Marketing
-      </a>
+      <div className="test3">
+        {/* Link para o teste grátis no RD Station */}
+        <a
+          className="signup-link"
+          href="https://app.rdstation.com.br/signup"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          fazer um teste grátis do RD Station Marketing
+        </a>
+        <img src="/assets/arrow-right.svg" alt="seta indicando próximo passo" />
+      </div>
     </div>
   );
 };
