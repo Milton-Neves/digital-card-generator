@@ -1,9 +1,9 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import InputMask from "react-input-mask";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import "./Form.css";
 
@@ -34,7 +34,7 @@ const FormComponent: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    control,
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
@@ -43,7 +43,7 @@ const FormComponent: React.FC = () => {
 
   const onSubmit = (data: FormData) => {
     localStorage.setItem("businessCardData", JSON.stringify(data));
-    navigate("/result");
+    navigate("/resultado");
   };
 
   return (
@@ -74,11 +74,17 @@ const FormComponent: React.FC = () => {
             <div className="form-inline">
               <div className="form-group">
                 <label htmlFor="phone">Telefone* </label>
-                <InputMask
-                  id="phone"
-                  placeholder="(00) 0 0000-0000"
-                  mask="(99) 9999[9]-9999"
-                  {...register("phone")}
+                <Controller
+                  control={control}
+                  name="phone"
+                  render={({ field }) => (
+                    <InputMask
+                      {...field}
+                      id="phone"
+                      placeholder="(00) 0 0000-0000"
+                      mask="(99) 9999[9]-9999"
+                    />
+                  )}
                 />
                 {errors.phone && (
                   <p className="error">{errors.phone.message}</p>
@@ -96,39 +102,40 @@ const FormComponent: React.FC = () => {
                 )}
               </div>
             </div>
-          </form>
 
-          <div className="info">
-            <ul>
-              <li>
-                Ao preencher o formulário, concordo * em receber comunicações de
-                acordo com meus interesses.
-              </li>
-              <li>
-                Ao informar meus dados, eu concordo com a{" "}
-                <a
-                  href="https://legal.rdstation.com/pt/privacy-policy/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Política de Privacidade
-                </a>
-              </li>
-            </ul>
-            <p>
-              * Você pode alterar suas permissões de comunicação a qualquer
-              tempo.
-            </p>
-          </div>
-          <button type="submit" className="btn-submit">
-            <span className="flex-center" aria-label="Gerar cartão grátis">
-              <p id="btn-text">GERAR CARTÃO GRÁTIS</p>
-              <img
-                src="/assets/arrow-right-btn.svg"
-                alt="seta indicando próximo passo"
-              />
-            </span>
-          </button>
+            <div className="info">
+              <ul>
+                <li>
+                  Ao preencher o formulário, concordo * em receber comunicações
+                  de acordo com meus interesses.
+                </li>
+                <li>
+                  Ao informar meus dados, eu concordo com a{" "}
+                  <a
+                    href="https://legal.rdstation.com/pt/privacy-policy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Política de Privacidade
+                  </a>
+                </li>
+              </ul>
+              <p>
+                * Você pode alterar suas permissões de comunicação a qualquer
+                tempo.
+              </p>
+            </div>
+
+            <button type="submit" className="btn-submit">
+              <span className="flex-center" aria-label="Gerar cartão grátis">
+                <p id="btn-text">GERAR CARTÃO GRÁTIS</p>
+                <img
+                  src="/assets/arrow-right-btn.svg"
+                  alt="seta indicando próximo passo"
+                />
+              </span>
+            </button>
+          </form>
         </div>
       </div>
     </div>

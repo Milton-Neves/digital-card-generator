@@ -1,4 +1,5 @@
-import React from "react";
+// import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ResultPage.css";
 
@@ -10,11 +11,18 @@ interface BusinessCardInfo {
 
 const ResultPage: React.FC = () => {
   const navigate = useNavigate();
-  const cardInfo: BusinessCardInfo = {
-    name: "Nome e Sobrenome",
-    phone: "(00) 0000-0000",
-    email: "meuemail@email.com",
-  };
+  const [cardInfo, setCardInfo] = useState<BusinessCardInfo>({
+    name: "",
+    phone: "",
+    email: "",
+  });
+
+  useEffect(() => {
+    const savedData = localStorage.getItem("businessCardData");
+    if (savedData) {
+      setCardInfo(JSON.parse(savedData));
+    }
+  }, []);
 
   const handleBack = () => {
     navigate("/", { replace: true });
@@ -30,7 +38,6 @@ const ResultPage: React.FC = () => {
             <p id="btn-text">Gerar outro cartão</p>
           </span>
         </button>
-
         {/* Cartão estilizado */}
         <div className="card">
           <img src="/assets/icon-logo.svg" alt="Logo" className="card-logo" />
@@ -53,18 +60,21 @@ const ResultPage: React.FC = () => {
             <p id="btn-text">BAIXAR CARTÃO</p>
           </span>
         </button>
-      </div>
-      <div className="test3">
-        {/* Link para o teste grátis no RD Station */}
-        <a
-          className="signup-link"
-          href="https://app.rdstation.com.br/signup"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          fazer um teste grátis do RD Station Marketing
-        </a>
-        <img src="/assets/arrow-right.svg" alt="seta indicando próximo passo" />
+        <div className="test3">
+          {/* Link para o teste grátis no RD Station */}
+          <a
+            className="signup-link"
+            href="https://app.rdstation.com.br/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            fazer um teste grátis do RD Station Marketing
+          </a>
+          <img
+            src="/assets/arrow-right.svg"
+            alt="seta indicando próximo passo"
+          />
+        </div>
       </div>
     </div>
   );
