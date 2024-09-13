@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import InputMask from "react-input-mask";
+import { useNavigate } from 'react-router-dom';
+
 import "./Form.css";
 
 // Montar esquema de validação com Yup
@@ -37,15 +39,17 @@ const FormComponent: React.FC = () => {
     resolver: yupResolver(schema),
   });
 
+  const navigate = useNavigate();
+
   const onSubmit = (data: FormData) => {
-    console.log("Form Data:", data);
+    localStorage.setItem("businessCardData", JSON.stringify(data));
+    navigate("/result");
   };
 
   return (
     <div className="form-container">
       <div className="title">
         <h1>Gerador de Cartão de Visita</h1>
-
         <p>
           Crie grátis seu cartão de visita em passos rápidos! Você o insere no
           Instagram e demais canais digitais.
