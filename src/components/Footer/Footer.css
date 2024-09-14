@@ -1,3 +1,15 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 footer {
   display: flex;
   justify-content: center;
@@ -5,13 +17,30 @@ footer {
   align-items: center;
   gap: 1rem;
   background-color: var(--gray-primary);
-  p {
-    color: var(--gray-quartiary);
-    font-size: 14px;
-    font-weight: 400;
+  width: 100%;
+  /* position: absolute; */
+  bottom: 0;
+}
+
+footer p {
+  color: var(--gray-quartiary);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+footer a {
+  font-weight: 700;
+  color: inherit;
+}
+
+@media (min-width: 1024px) {
+  
+  footer {
+    position: relative;
+    bottom: 0;
   }
-  a {
-    font-weight: 700;
-    color: inherit;
+
+  footer p {
+    font-size: 16px;
   }
 }
