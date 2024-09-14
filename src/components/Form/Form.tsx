@@ -66,22 +66,20 @@ const FormComponent: React.FC = () => {
     <div className="form-container">
       <div className="title">
         <h1>Gerador de Cartão de Visita</h1>
-        <p>
+        <p id="title">
           Crie grátis seu cartão de visita em passos rápidos! Você o insere no
           Instagram e demais canais digitais.
         </p>
       </div>
       <div className="content">
-        <div className="image">
-          <img src="/assets/image.svg" alt="imagem ilustrativa" />
-        </div>
+        <img src="/assets/image.svg" alt="imagem ilustrativa" />
         <div className="form-content">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
               <label htmlFor="name">Nome* </label>
               <input
                 id="name"
-                placeholder="Digite seu nome"
+                placeholder="digite seu nome"
                 {...register("name")}
               />
               {errors.name && <p className="error">{errors.name.message}</p>}
