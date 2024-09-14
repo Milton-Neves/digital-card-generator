@@ -66,6 +66,14 @@
         font-weight: 400;
         text-align: left;
       }
+
+      .error {
+        position: relative;
+        bottom: 24px;
+        left: 5px;
+        color: var(--quartiary-color);
+        font-size: 12px;
+      }
     }
   }
 

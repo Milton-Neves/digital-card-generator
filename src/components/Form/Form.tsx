@@ -20,8 +20,16 @@ const schema = yup.object().shape({
   phone: yup
     .string()
     .required("Telefone é obrigatório")
-    .matches(/^\(\d{2}\)\s\d{4,5}-\d{4}$/, "Telefone inválido"),
+    .test('len', 'Número de telefone inválido', (value) => {
+      const phone = value ? value.replace(/\D/g, '') : '';
+      return phone.length === 10 || phone.length === 11;
+    })
 });
+
+// Função para remover a máscara do telefone
+const removeMask = (value: string) => {
+  return value.replace(/\D/g, ''); // Remove todos os caracteres que não são números
+};
 
 type FormData = {
   name: string;
@@ -30,20 +38,30 @@ type FormData = {
 };
 
 const FormComponent: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    control,
-  } = useForm<FormData>({
+  const { register, handleSubmit, formState: { errors, isValid }, control, reset } = useForm<FormData>({
     resolver: yupResolver(schema),
+    mode: "onChange" // Recalcula a validação a cada alteração
   });
 
   const navigate = useNavigate();
 
-  const onSubmit = (data: FormData) => {
-    localStorage.setItem("businessCardData", JSON.stringify(data));
-    navigate("/resultado");
+  const onSubmit = async (data: FormData) => {
+    try {
+      // Atualizar telefone sem máscara antes de enviar os dados
+      const dataWithoutMask = {
+        ...data,
+        phone: removeMask(data.phone),
+      };
+      console.log("Dados sem máscara:", dataWithoutMask);
+
+      // Salvar os dados no localStorage
+      localStorage.setItem("businessCardData", JSON.stringify(dataWithoutMask));
+
+      // Navegar para a página de resultado
+      navigate("/resultado");
+    } catch (error) {
+      console.log('Erro ao enviar o formulário:', error);
+    }
   };
 
   return (
@@ -82,7 +100,7 @@ const FormComponent: React.FC = () => {
                       {...field}
                       id="phone"
                       placeholder="(00) 0 0000-0000"
-                      mask="(99) 9999[9]-9999"
+                      mask="(99) 9 9999-9999"
                     />
                   )}
                 />
@@ -126,7 +144,7 @@ const FormComponent: React.FC = () => {
               </p>
             </div>
 
-            <button type="submit" className="btn-submit">
+            <button type="submit" className="btn-submit" disabled={!isValid}>
               <span className="flex-center" aria-label="Gerar cartão grátis">
                 <p id="btn-text">GERAR CARTÃO GRÁTIS</p>
                 <img
