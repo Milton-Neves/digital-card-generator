@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 import "./Form.css";
 
-// Montar esquema de validação com Yup
 const schema = yup.object().shape({
   name: yup
     .string()
@@ -26,9 +25,8 @@ const schema = yup.object().shape({
     }),
 });
 
-// Função para remover a máscara do telefone
 const removeMask = (value: string) => {
-  return value.replace(/\D/g, ""); // Remove todos os caracteres que não são números
+  return value.replace(/\D/g, "");
 };
 
 type FormData = {
@@ -46,23 +44,20 @@ const FormComponent: React.FC = () => {
     reset,
   } = useForm<FormData>({
     resolver: yupResolver(schema),
-    mode: "onChange", // Recalcula a validação a cada alteração
+    mode: "onChange",
   });
 
   const navigate = useNavigate();
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Atualizar telefone sem máscara antes de enviar os dados
       const dataWithoutMask = {
         ...data,
         phone: removeMask(data.phone),
       };
 
-      // Salvar os dados no localStorage
       localStorage.setItem("businessCardData", JSON.stringify(dataWithoutMask));
 
-      // Navegar para a página de resultado
       navigate("/resultado");
     } catch (error) {}
   };
