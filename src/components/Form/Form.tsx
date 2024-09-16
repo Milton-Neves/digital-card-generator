@@ -10,8 +10,8 @@ import "./Form.css";
 const schema = yup.object().shape({
   name: yup
     .string()
-    .min(2, "O nome deve ter no mínimo 2 caracteres")
-    .required("Nome é obrigatório"),
+    .required("Nome é obrigatório")
+    .min(2, "O nome deve ter no mínimo 2 caracteres"),
   email: yup
     .string()
     .email("Digite um e-mail válido")
@@ -97,6 +97,7 @@ const FormComponent: React.FC = () => {
                       id="phone"
                       placeholder="(00) 0 0000-0000"
                       mask="(99) 9 9999-9999"
+                      // value={field.value || ""}
                     />
                   )}
                 />
@@ -140,7 +141,7 @@ const FormComponent: React.FC = () => {
               </p>
             </div>
 
-            <button type="submit" className="btn-submit" disabled={!isValid}>
+            <button type="submit" className="btn-submit">
               <span className="flex-center" aria-label="Gerar cartão grátis">
                 <p id="btn-text">GERAR CARTÃO GRÁTIS</p>
                 <img
