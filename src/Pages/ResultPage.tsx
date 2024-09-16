@@ -47,7 +47,7 @@ const ResultPage: React.FC = () => {
           </div>
         </div>
 
-        <button type="submit" className="download-button">
+        <button type="submit" className="download-button" disabled>
           <span className="flex-center" aria-label="Gerar cartão grátis">
             <img
               src="/assets/arrow-down.svg"

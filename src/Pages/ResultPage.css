@@ -11,7 +11,7 @@
   .content {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 1rem;
     padding: 36px 24px 0;
 
     .back-button {
@@ -91,6 +91,7 @@
           color: var(--gray-tertiary);
           font-size: 14px;
           font-weight: 800;
+          font-family: "Nunito", sans-serif;
         }
 
         img {
@@ -110,7 +111,7 @@
         color: var(--white);
         text-transform: uppercase;
         text-decoration: none;
-        max-width: 65%;
+        /* max-width: 65%; */
       }
     }
   }
@@ -129,7 +130,7 @@
     }
 
     .content {
-      padding: 0;
+      padding: 0 0 36px 0;
 
       .back-button {
         .flex-center {
