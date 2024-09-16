@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ResultPage.css";
+import Button from "../components/Button/button";
 
 interface BusinessCardInfo {
   name: string;
@@ -27,6 +28,8 @@ const ResultPage: React.FC = () => {
     navigate("/", { replace: true });
   };
 
+  const handleResultClick = () => {};
+
   return (
     <div className="result-container">
       <img id="image" src="/assets/image.svg" alt="imagem ilustrativa" />
@@ -47,15 +50,14 @@ const ResultPage: React.FC = () => {
           </div>
         </div>
 
-        <button type="submit" className="download-button" disabled>
-          <span className="flex-center" aria-label="Gerar cartão grátis">
-            <img
-              src="/assets/arrow-down.svg"
-              alt="seta indicando próximo passo"
-            />
-            <p id="btn-text">BAIXAR CARTÃO</p>
-          </span>
-        </button>
+        <Button
+          text="BAIXAR CARTÃO"
+          iconPosition="left"
+          iconSrc="/assets/arrow-down.svg"
+          onClick={handleResultClick}
+          disabled={true}
+          isResultButton={true}
+        />
         <div className="link-button">
           <a
             className="signup-link"

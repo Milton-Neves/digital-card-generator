@@ -6,6 +6,8 @@ import InputMask from "react-input-mask";
 import { useNavigate } from "react-router-dom";
 
 import "./Form.css";
+import Button from "../Button/button";
+import "../Button/button.css";
 
 const schema = yup.object().shape({
   name: yup
@@ -91,13 +93,13 @@ const FormComponent: React.FC = () => {
                 <Controller
                   control={control}
                   name="phone"
+                  rules={{ required: "O telefone é obrigatório" }}
                   render={({ field }) => (
                     <InputMask
                       {...field}
                       id="phone"
                       placeholder="(00) 0 0000-0000"
                       mask="(99) 9 9999-9999"
-                      // value={field.value || ""}
                     />
                   )}
                 />
@@ -140,16 +142,11 @@ const FormComponent: React.FC = () => {
                 tempo.
               </p>
             </div>
-
-            <button type="submit" className="btn-submit">
-              <span className="flex-center" aria-label="Gerar cartão grátis">
-                <p id="btn-text">GERAR CARTÃO GRÁTIS</p>
-                <img
-                  src="/assets/arrow-right-btn.svg"
-                  alt="seta indicando próximo passo"
-                />
-              </span>
-            </button>
+            <Button
+              text="GERAR CARTÃO GRÁTIS"
+              iconPosition="right"
+              iconSrc="/assets/arrow-right-btn.svg"
+            />
           </form>
         </div>
       </div>
