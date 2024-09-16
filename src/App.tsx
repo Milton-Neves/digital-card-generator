@@ -1,8 +1,8 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Form from "./components/Form/Form";
-import ResultPage from "./Pages/ResultPage";
+import Form from "./Pages/Form/Form";
+import ResultPage from "./Pages/Result/Result";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {

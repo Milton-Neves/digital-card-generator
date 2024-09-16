@@ -6,8 +6,7 @@ import InputMask from "react-input-mask";
 import { useNavigate } from "react-router-dom";
 
 import "./Form.css";
-import Button from "../Button/button";
-import "../Button/button.css";
+import Button from "../../components/Button/button";
 
 const schema = yup.object().shape({
   name: yup
