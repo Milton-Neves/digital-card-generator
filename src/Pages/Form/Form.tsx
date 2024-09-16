@@ -46,6 +46,11 @@ const FormComponent: React.FC = () => {
   } = useForm<FormData>({
     resolver: yupResolver(schema),
     mode: "onChange",
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+    },
   });
 
   const navigate = useNavigate();
@@ -81,6 +86,7 @@ const FormComponent: React.FC = () => {
               <input
                 id="name"
                 placeholder="digite seu nome"
+                autoComplete="name"
                 {...register("name")}
               />
               {errors.name && <p className="error">{errors.name.message}</p>}
@@ -92,13 +98,13 @@ const FormComponent: React.FC = () => {
                 <Controller
                   control={control}
                   name="phone"
-                  rules={{ required: "O telefone é obrigatório" }}
                   render={({ field }) => (
                     <InputMask
                       {...field}
                       id="phone"
                       placeholder="(00) 0 0000-0000"
                       mask="(99) 9 9999-9999"
+                      autoComplete="tel"
                     />
                   )}
                 />
@@ -111,6 +117,7 @@ const FormComponent: React.FC = () => {
                 <input
                   id="email"
                   placeholder="nome@email.com"
+                  autoComplete="email"
                   {...register("email")}
                 />
                 {errors.email && (
