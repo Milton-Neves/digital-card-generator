@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ResultPage.css";
-import Button from "../components/Button/button";
+import Button from "../../components/Button/button";
 
 interface BusinessCardInfo {
   name: string;
@@ -56,7 +56,6 @@ const ResultPage: React.FC = () => {
           iconSrc="/assets/arrow-down.svg"
           onClick={handleResultClick}
           disabled={true}
-          isResultButton={true}
         />
         <div className="link-button">
           <a
