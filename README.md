@@ -6,7 +6,7 @@ Trata-se de uma aplicação web interativa que permite aos usuários criar cart�
 
 _Funcionalidades_:
 
-- Preenchimento de informações essenciais como nome, cargo e contatos.
+- Preenchimento de informações essenciais como nome, telefone e e-mail.
 - Visualização instantânea do cartão de visitas digital.
 - Interface simples e intuitiva, garantindo uma experiência de usuário agradável.
 
