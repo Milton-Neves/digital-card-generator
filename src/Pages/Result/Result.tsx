@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./ResultPage.css";
+import "./Result.css";
 import Button from "../../components/Button/button";
 
 interface BusinessCardInfo {

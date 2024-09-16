@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 import "./Form.css";
 import Button from "../../components/Button/button";
-import "../Button/button.css";
 
 const schema = yup.object().shape({
   name: yup
