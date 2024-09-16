@@ -1,7 +1,7 @@
 .result-container {
   margin: 0 auto;
   max-width: 100%;
-  height: 85vh;
+  height: 100vh;
 
   #image {
     display: none;
@@ -121,6 +121,7 @@
     align-items: center;
     justify-content: center;
     gap: 6rem;
+    height: 85vh;
 
     #image {
       display: block;

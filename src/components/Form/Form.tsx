@@ -91,13 +91,13 @@ const FormComponent: React.FC = () => {
                 <Controller
                   control={control}
                   name="phone"
+                  rules={{ required: 'O telefone é obrigatório' }}
                   render={({ field }) => (
                     <InputMask
                       {...field}
                       id="phone"
                       placeholder="(00) 0 0000-0000"
                       mask="(99) 9 9999-9999"
-                      // value={field.value || ""}
                     />
                   )}
                 />
