@@ -17,6 +17,17 @@ const ResultPage: React.FC = () => {
     email: "",
   });
 
+  const formatPhoneNumber = (phone: string): string => {
+    const cleaned = phone.replace(/\D/g, "");
+
+    const match = cleaned.match(/^(\d{2})(\d{1})(\d{4})(\d{4})$/);
+    if (match) {
+      return `(${match[1]}) ${match[2]} ${match[3]}-${match[4]}`;
+    }
+
+    return phone;
+  };
+
   useEffect(() => {
     const savedData = localStorage.getItem("businessCardData");
     if (savedData) {
@@ -45,7 +56,8 @@ const ResultPage: React.FC = () => {
           <div className="card-line"></div>
           <div className="card-info">
             <p>{cardInfo.name}</p>
-            <p>{cardInfo.phone}</p>
+            <p>{formatPhoneNumber(cardInfo.phone)}</p>
+
             <p>{cardInfo.email}</p>
           </div>
         </div>
