@@ -21,7 +21,7 @@ const schema = yup.object().shape({
     .string()
     .required("Telefone é obrigatório")
     .test("len", "Número de telefone inválido", (value) => {
-      const phone = value ? value.replace(/\D/g, "") : "";
+      const phone = removeMask(value || "");
       return phone.length === 10 || phone.length === 11;
     }),
 });
